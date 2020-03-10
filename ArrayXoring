@@ -1,5 +1,5 @@
 import java.util.*;
-public class Xoring
+public class ArrayXoring
 {
    public static int[] optimizedXoring(int array[],int index_array[][],int n,int num_of_range_calculations)
    {
