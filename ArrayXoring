@@ -1,6 +1,28 @@
 import java.util.*;
 public class Xoring
 {
+   public static int[] optimizedXoring(int array[],int index_array[][],int n,int num_of_range_calculations)
+   {
+        int []myfinal=new int[num_of_range_calculations];
+        int []preXoring_contents=new int[n];
+        preXoring_contents[0]=array[0];
+        for(int i=1;i<n;i++)
+        {
+            preXoring_contents[i]=preXoring_contents[i-1]^array[i];
+        }
+        for(int i=0;i<num_of_range_calculations;i++)
+        {
+            int xor=0;
+            xor=xor^preXoring_contents[index_array[i][1]];
+            if(index_array[i][0]>0)
+            {
+                xor=xor^preXoring_contents[index_array[i][0]-1];
+            }
+            myfinal[i]=xor;
+        }
+        
+        return myfinal;
+    }
     public static int[] xoring(int array[],int index_array[][],int n,int num_of_range_calculations)
     {
         int xoring_array[]=new int[num_of_range_calculations];
